@@ -1,0 +1,60 @@
+.header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.poultry {
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    background: #c0c0c0;
+}
+
+.poultry h2 {
+    box-sizing: border-box;
+    border: 1px solid black;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.beef {
+    background: #ff5858;
+    color: white;
+}
+
+.chicken {
+    background: #ffbfbf;
+}
+
+.sushi {
+    background: #c1c299;
+}
+
+.col-1 {
+    width: 8.33%
+}
+
+.col-2 {
+    width: 16.66%
+}
+
+.col-3 {
+    width: 25%
+}
+
+.col-4 {
+    width: 33.33%
+}
+
+.col-6 {
+    width: 50%
+}
+
+.col-8 {
+    width: 66.66%
+}
+
+.col-12 {
+    width: 100%
+}
