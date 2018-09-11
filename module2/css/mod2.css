@@ -1,21 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
 .header {
+    width: 100%;
+    font-size: 24px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
 }
 
 .poultry {
-    box-sizing: border-box;
     padding: 10px;
     margin: 10px;
     border: 1px solid black;
     background: #c0c0c0;
+    float:left;
+    position: relative;
 }
 
 .poultry h2 {
-    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
     border: 1px solid black;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.poultry p {
+    padding: 0;
+    margin: 0;
+    margin-top: 30px;
+}
+
+@media (max-width: 767px) {
+    #sectionChicken{
+        width: 100%;
+    }
+    #sectionBeef{
+        width: 100%;
+    } 
+    #sectionSushi {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #sectionChicken{
+        width: 50%;
+    }
+    #sectionBeef {
+        width: 50%;
+    }
+    #sectionSushi {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    #sectionChicken{
+        width: 33.33%;
+    } 
+    #sectionBeef {
+        width: 33.33%;
+    }
+    #sectionSushi {
+        width: 33.33%;
+    }
 }
 
 .beef {
@@ -29,7 +82,7 @@
 
 .sushi {
     background: #c1c299;
-}
+} 
 
 .col-1 {
     width: 8.33%
