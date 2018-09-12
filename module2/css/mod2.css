@@ -36,6 +36,12 @@ div.poultry {
     border: 1px solid black;
     background: #c0c0c0;
     position: relative;
+    overflow: hidden;
+}
+
+div.poultry:hover {
+    overflow: auto;
+    cursor: pointer;
 }
 
 div.poultry > p {
