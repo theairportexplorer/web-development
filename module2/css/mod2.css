@@ -74,6 +74,11 @@ div.sushi > h2 {
     background: #c1c299;
 } 
 
+p.small-description {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .col-1 {
     width: 8.33%;
 }
@@ -156,6 +161,12 @@ div.sushi > h2 {
     div.header-small {
         visibility: hidden;
     }
+    div.poultry > h2 {
+        height: 35px;
+    }
+    p.small-description {
+        visibility: hidden;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -203,6 +214,12 @@ div.sushi > h2 {
     div.header-small {
         visibility: hidden;
     }
+    div.poultry > h2 {
+        height: 35px;
+    }
+    p.small-description {
+        visibility: hidden;
+    }
 }
 
 /* mobile mode */
@@ -245,5 +262,8 @@ div.sushi > h2 {
     }
     div.header-normal {
         visibility: hidden;
+    }
+    div.poultry > p {
+        margin-top: 100px;
     }
 }
