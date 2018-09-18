@@ -1,0 +1,49 @@
+.row {
+    align-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav.navbar {
+    background: #c0c0c0;
+}
+
+.navbar button.navbar-toggler {
+    margin-right: 30px;
+    border: 1px solid black;
+}
+
+a.nav-link {
+    font-size: 1.2em;
+    color: black;
+}
+
+a.navbar-brand {
+    padding-left: 20px;
+    font-size: 2em;
+    color: black;
+}
+
+div.our-menu {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+div.poultry {
+    width: 95%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    background: #c0c0c0;
+    overflow: hidden;
+}
+
+div.poutlry > h3 {
+    text-align: center;
+}
+
+div.poultry > p {
+    padding: 0;
+    margin: 0;
+}
