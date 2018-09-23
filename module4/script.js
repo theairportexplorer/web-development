@@ -30,6 +30,7 @@ Good Bye Jim
   // using the 'speak' method or either helloSpeaker's or byeSpeaker's
   // 'speak' method.
   // See Lecture 50, part 1
+  console.log("Part 1 - Using .speak() to write to console.log:");
   for (var idx in names) {
     // STEP 11:
     // Retrieve the first letter of the current name in the loop.
@@ -45,7 +46,6 @@ Good Bye Jim
     // 'j'. If the same, call byeSpeaker's 'speak' method with the current name
     // in the loop. Otherwise, call helloSpeaker's 'speak' method with the current
     // name in the loop.
-    console.log("Part 1 - Using .speak() to write to console.log:");
     if (firstLetter == 'j') {
       byeSpeaker.speak(names[idx]);
     } else {
