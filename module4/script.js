@@ -51,6 +51,34 @@ Good Bye Jim
       helloSpeaker.speak(names[idx]);
     }
   }
+
+  // Using Array.prototype.map to do the assignment
+  function speaker(x) {
+    if (x.charAt(0).toLowerCase() == 'j') {
+      console.log(byeSpeaker.speakSimple(x));
+    } else {
+      console.log(helloSpeaker.speakSimple(x));
+    }
+  }
+  names.map(x => speaker(x));
+
+  // Using Array.prototype.reduce to the assignment
+  var initialArray = {"hello": [], "bye": []};
+  names.reduce( (accumulator, currentValue) => {
+    // console.log(accumulator);
+    if (currentValue.charAt(0).toLowerCase() == 'j') {
+      accumulator.bye.push(byeSpeaker.speakSimple(currentValue));
+    } else {
+      accumulator.hello.push(helloSpeaker.speakSimple(currentValue));
+    }
+    return accumulator;
+  }, initialArray);
+  for (var idx in initialArray.hello) {
+    console.log(initialArray.hello[idx]);
+  }
+  for (var idx in initialArray.bye) {
+    console.log(initialArray.bye[idx]);
+  }
 })();
 
 
