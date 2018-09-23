@@ -45,6 +45,7 @@ Good Bye Jim
     // 'j'. If the same, call byeSpeaker's 'speak' method with the current name
     // in the loop. Otherwise, call helloSpeaker's 'speak' method with the current
     // name in the loop.
+    console.log("Part 1 - Using .speak() to write to console.log:");
     if (firstLetter == 'j') {
       byeSpeaker.speak(names[idx]);
     } else {
@@ -53,6 +54,7 @@ Good Bye Jim
   }
 
   // Using Array.prototype.map to do the assignment
+  console.log("Part 2 - Using array.map() to write to console.log:");
   function speaker(x) {
     if (x.charAt(0).toLowerCase() == 'j') {
       console.log(byeSpeaker.speakSimple(x));
@@ -63,6 +65,7 @@ Good Bye Jim
   names.map(x => speaker(x));
 
   // Using Array.prototype.reduce to the assignment
+  console.log("Part 3 - Using array.reduce() to write to console.log: ");
   var initialArray = {"hello": [], "bye": []};
   names.reduce( (accumulator, currentValue) => {
     // console.log(accumulator);
