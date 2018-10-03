@@ -7,6 +7,7 @@ Quick links to the assignments for viewing:
 * [Assignment 2](https://theairportexplorer.github.io/web-development/module2/)
 * [Assignment 3](https://theairportexplorer.github.io/web-development/module3/)
 * [Assignment 4](https://theairportexplorer.github.io/web-development/module4/)
+* [Assignment 5](https://theairportexplorer.github.io/web-development/module5/)
 
 ### Dev notes:
 

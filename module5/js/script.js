@@ -22,6 +22,8 @@ var menuItemsUrl =
   "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+// Specific for JHU Ajax Class
+var aboutHtmlUrl = "snippets/about.html";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -156,6 +158,37 @@ dc.loadMenuItems = function (categoryShort) {
     buildAndShowMenuItemsHTML);
 };
 
+// Specific for JHU Ajax Class
+function generateRandomRating() {
+  return Math.floor(Math.random() * Math.floor(5)) + 1;
+}
+
+dc.buildRandomRating = function() {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    aboutHtmlUrl,
+    function (aboutHtml) {
+      var starRating = generateRandomRating();
+      for (var i = 1; i <= starRating; i++ ) {
+        aboutHtml = insertProperty(aboutHtml, "star-" + i, "fas fa-star");
+      }
+      for (var i = starRating; i <= 5; i++ ) {
+        aboutHtml = insertProperty(aboutHtml, "star-" + i, "far fa-star");
+      }
+      var ratingCommentary = "";
+      if (starRating == 1 || starRating == 2) {
+        ratingCommentary = starRating + "-star rating: This place sucks!";
+      } else if (starRating == 4 || starRating == 5) {
+        ratingCommentary = starRating + "-star rating: This place rocks!";
+      } else {
+        ratingCommentary = "3-star rating: This place is alright...";
+      }
+      aboutHtml = insertProperty(aboutHtml, "star-commentary", ratingCommentary);
+      insertHtml("#main-content", aboutHtml);
+    },
+    false
+  );
+};
 
 // Builds HTML for the categories page based on the data
 // from the server
@@ -336,7 +369,6 @@ function insertItemPortionName(html,
   html = insertProperty(html, portionPropName, portionValue);
   return html;
 }
-
 
 global.$dc = dc;
 
