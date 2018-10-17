@@ -17,8 +17,8 @@ function angularDollarFilter ($filter) {
     }
 }
 
-ToBuyController.$inject = ["ShoppingList", "angularDollarFilter", "$filter"];
-function ToBuyController (ShoppingList, angularDollarFilter) {
+ToBuyController.$inject = ["ShoppingList"];
+function ToBuyController (ShoppingList) {
     var tbc = this;
     tbc.itemName = "";
     tbc.itemPrice = "";
@@ -54,8 +54,8 @@ function ToBuyController (ShoppingList, angularDollarFilter) {
     // ShoppingList.addItem("Soap", 1);
 }
 
-AlreadyBoughtController.$inject = ["ShoppingList", "angularDollarFilter", "$filter"];
-function AlreadyBoughtController (ShoppingList, angularDollarFilter, $filter) {
+AlreadyBoughtController.$inject = ["ShoppingList"];
+function AlreadyBoughtController (ShoppingList) {
     var abc = this;
 
     abc.getBoughtItems = function () {
