@@ -4,11 +4,21 @@
 angular.module("ShoppingListCheckOff", [])
 .controller("ToBuyController", ToBuyController)
 .controller("AlreadyBoughtController", AlreadyBoughtController)
-// .filter("angularDollar", angularDollarFilter)
+.filter("angularDollar", angularDollarFilter)
 .service("ShoppingList", ShoppingList);
 
-ToBuyController.$inject = ["ShoppingList"];
-function ToBuyController (ShoppingList) {
+angularDollarFilter.$inject = ["$filter"];
+function angularDollarFilter ($filter) {
+    return function (input) {
+        input = input || 0;
+        input = $filter('currency')(input);
+        input = "$$" + input;
+        return input;
+    }
+}
+
+ToBuyController.$inject = ["ShoppingList", "angularDollarFilter", "$filter"];
+function ToBuyController (ShoppingList, angularDollarFilter) {
     var tbc = this;
     tbc.itemName = "";
     tbc.itemPrice = "";
@@ -44,8 +54,8 @@ function ToBuyController (ShoppingList) {
     // ShoppingList.addItem("Soap", 1);
 }
 
-AlreadyBoughtController.$inject = ["ShoppingList"];
-function AlreadyBoughtController (ShoppingList) {
+AlreadyBoughtController.$inject = ["ShoppingList", "angularDollarFilter", "$filter"];
+function AlreadyBoughtController (ShoppingList, angularDollarFilter, $filter) {
     var abc = this;
 
     abc.getBoughtItems = function () {
@@ -54,6 +64,10 @@ function AlreadyBoughtController (ShoppingList) {
 
     abc.somethingBought = function () {
         return ShoppingList.somethingBought();
+    };
+
+    abc.totalCost = function () {
+        return ShoppingList.totalCost();
     };
 }
 
@@ -114,6 +128,16 @@ function ShoppingList () {
 
     sl.getItems = function () {
         return sl.items;
+    };
+
+    sl.totalCost = function () {
+        var cost = 0;
+        for (var idx = 0; idx < sl.items.length; idx++ ) {
+            if ( sl.items[idx].bought === true ) {
+                cost += (sl.items[idx].quantity * sl.items[idx].price);
+            }
+        }
+        return cost;
     };
 }
 })();

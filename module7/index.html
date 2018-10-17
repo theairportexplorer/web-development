@@ -41,7 +41,7 @@
         <ul>
           <li ng-repeat="n in tbc.getItems()">
             <input type="text" ng-model="n.quantity">
-            Buy {{n.quantity}} {{n.item}} for {{n.price * n.quantity}}
+            Buy {{n.quantity}} {{n.item}} for {{n.price * n.quantity | angularDollar}}
             <button class="btn btn-default" ng-click="tbc.buyItem($index);">
               <span class="glyphicon glyphicon-ok"></span>
               Buy
@@ -62,7 +62,7 @@
         <li ng-repeat="n in abc.getBoughtItems()">Bought {{n.quantity}} {{n.item}}</li>
       </ul>
       <div class="emptyMessage" ng-hide="abc.somethingBought();">Nothing bought yet.</div>
-      <div ng-show="abc.somethingBought();">Total cost: </div>
+      <p ng-show="abc.somethingBought();">Total cost: {{abc.totalCost() | angularDollar}}</p>
     </div>
   </div>
 </div>
