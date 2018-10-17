@@ -40,7 +40,7 @@
         <p>Default populates list with 10 orders of 10 cookes for 0.10 each.</p>
         <ul>
           <li ng-repeat="n in tbc.getItems()">
-            <input type="text" ng-model="n.quantity">
+            <input type="text" style="width: 40px;" ng-model="n.quantity">
             Buy {{n.quantity}} {{n.item}} for {{n.price * n.quantity | angularDollar}}
             <button class="btn btn-default" ng-click="tbc.buyItem($index);">
               <span class="glyphicon glyphicon-ok"></span>
