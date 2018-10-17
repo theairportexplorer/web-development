@@ -11,7 +11,7 @@ angularDollarFilter.$inject = ["$filter"];
 function angularDollarFilter ($filter) {
     return function (input) {
         input = input || 0;
-        input = $filter('currency')(input);
+        input = $filter('currency')(input); // automatically prepends '$'
         input = "$$" + input;
         return input;
     }
@@ -49,9 +49,6 @@ function ToBuyController (ShoppingList) {
             ShoppingList.addItem("Cookies", 0.10);
         }
     }
-    // For initial testing...
-    // ShoppingList.addItem("Cookies", 10);
-    // ShoppingList.addItem("Soap", 1);
 }
 
 AlreadyBoughtController.$inject = ["ShoppingList"];

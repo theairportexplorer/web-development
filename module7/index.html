@@ -59,10 +59,12 @@
     <div class="col-md-6" ng-controller="AlreadyBoughtController as abc">
       <h2>Already Bought:</h2>
       <ul>
-        <li ng-repeat="n in abc.getBoughtItems()">Bought {{n.quantity}} {{n.item}}</li>
+        <li ng-repeat="n in abc.getBoughtItems()">
+          Bought {{n.quantity}} of {{n.item}} for total price of {{n.price * n.quantity | angularDollar}}
+        </li>
       </ul>
       <div class="emptyMessage" ng-hide="abc.somethingBought();">Nothing bought yet.</div>
-      <p ng-show="abc.somethingBought();">Total cost: {{abc.totalCost() | angularDollar}}</p>
+      <p ng-show="abc.somethingBought();">Total price: {{abc.totalCost() | angularDollar}}</p>
     </div>
   </div>
 </div>
