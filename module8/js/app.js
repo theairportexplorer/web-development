@@ -29,12 +29,18 @@ function narrowItDownController (MenuSearchService) {
     nidc.getMatchedMenuItems = function () {
         nidc.found = MenuSearchService.getMatchedMenuItems(nidc.searchTerm);
     };
+
+    nidc.onRemove = function (index) {
+        console.log("Removing item at index: " + index);
+    };
 };
 
 function foundItems () {
     return {
-        foundItems: "",
-        onRemove: "",
+        restrict: 'E',
+        templateUrl: "found-items.html",
+        foundItems: "=found",
+        onRemove: "&onRemove"
     };
 }
 
