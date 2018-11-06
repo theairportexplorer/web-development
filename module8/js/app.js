@@ -14,8 +14,16 @@ function menuSearchService ($http) {
             url: "https://davids-restaurant.herokuapp.com/menu_items.json",
             responseType: "json"
         }).then( function (response) {
-            console.log(response);
-            return response.data.menu_items;
+            // console.log(response);
+            menu_items = response.data.menu_items;
+            var matchedItems = [];
+            for (var idx = 0; idx < menu_items.length; idx++) {
+                // console.log(menu_items[idx]);
+                if (menu_items[idx]["name"].toLowerCase().search(searchTerm.toLowerCase()) != -1) {
+                    matchedItems.push(menu_items[idx]["name"]);
+                }
+            }
+            return matchedItems;
         });
     };
 }
@@ -24,23 +32,31 @@ narrowItDownController.$inject = ['MenuSearchService'];
 function narrowItDownController (MenuSearchService) {
     var nidc = this;
     nidc.searchTerm = "";
-    nidc.found = {};
+    nidc.found = [];
 
     nidc.getMatchedMenuItems = function () {
-        nidc.found = MenuSearchService.getMatchedMenuItems(nidc.searchTerm);
+        var resp = MenuSearchService.getMatchedMenuItems(nidc.searchTerm);
+        resp.then( function (matchedItems) {
+            console.log(matchedItems);
+            nidc.found = matchedItems;
+        });
+        // console.log(nidc.found);
     };
 
     nidc.onRemove = function (index) {
         console.log("Removing item at index: " + index);
+        nidc.found.splice(index, 1);
     };
 };
 
 function foundItems () {
     return {
-        restrict: 'E',
         templateUrl: "found-items.html",
-        foundItems: "=found",
-        onRemove: "&onRemove"
+        scope: {
+            foundItems: "<",
+            onRemove: "&",
+        },
+        restrict: 'E'
     };
 }
 

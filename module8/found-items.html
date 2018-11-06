@@ -1,3 +1,6 @@
-<ul ng-controller="">
-  <li ng-repeat="n in found">{{n}}</li>
+<ul style="list-style-type: none; padding-left: 0px;">
+  <li ng-repeat="n in foundItems track by $index">
+    <button ng-click="onRemove({index: $index});">Don't want this one!</button>
+    {{n}}
+  </li>
 </ul>
