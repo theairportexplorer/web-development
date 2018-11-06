@@ -37,14 +37,14 @@ function narrowItDownController (MenuSearchService) {
     nidc.getMatchedMenuItems = function () {
         var resp = MenuSearchService.getMatchedMenuItems(nidc.searchTerm);
         resp.then( function (matchedItems) {
-            console.log(matchedItems);
+            // console.log(matchedItems);
             nidc.found = matchedItems;
         });
         // console.log(nidc.found);
     };
 
     nidc.onRemove = function (index) {
-        console.log("Removing item at index: " + index);
+        // console.log("Removing item at index: " + index);
         nidc.found.splice(index, 1);
     };
 };
