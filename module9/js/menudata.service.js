@@ -12,6 +12,7 @@ function menuDataService ($http) {
             url: "https://davids-restaurant.herokuapp.com/categories.json",
             responseType: "json"
         }).then( function (response) {
+            console.log(response);
             var categories = response.data;
             return categories;
         });
@@ -23,6 +24,7 @@ function menuDataService ($http) {
             params: { category: categoryShortName },
             responseType: "json"
         }).then( function (response) {
+            console.log(response);
             var menu_items = response.data.menu_items;
             return menu_items;
         });
