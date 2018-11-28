@@ -22,7 +22,7 @@ function RoutesConfig ($stateProvider, $urlRouterProvider) {
         }
     })
     .state('itemsList', {
-        url: "/items-list/{itemShortName}",
+        url: "/items/{itemShortName}",
         templateUrl: "js/templates/main-items.template.html",
         controller: "ItemsController as ic",
         resolve: {
@@ -32,6 +32,9 @@ function RoutesConfig ($stateProvider, $urlRouterProvider) {
                 }
             ],
             shortName: ["$stateParams", function ($stateParams) {
+                if ($stateParams.itemShortName === "") {
+                    return "ALL"
+                }
                 return $stateParams.itemShortName
             }]
         }
