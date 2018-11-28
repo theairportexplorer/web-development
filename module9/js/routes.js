@@ -9,10 +9,19 @@ function RoutesConfig ($stateProvider, $urlRouterProvider) {
     $stateProvider
     .state('home', {
         url: "/",
-        templateUrl: "templates/home.template.html"
-    });
-    // .state()
-    // .state();
+        templateUrl: "js/templates/home.template.html"
+    })
+    .state('categories', {
+        url: "/categories",
+        templateUrl: "js/templates/categories.template.html",
+        controller: "CategoriesController as cc",
+        resolve: {
+            categories: ["MenuDataService", function (MenuDataService) {
+                return MenuDataService.getAllCategories();
+            }]
+        }
+    })
+    .state('items', {});
 }
 
 })();
