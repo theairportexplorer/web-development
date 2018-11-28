@@ -1,16 +1,11 @@
 (function () {
 
 angular.module("MenuApp")
-.component("categories", {
-    templateUrl: "templates/categories.html",
-    controller: CategoriesController,
+.component("mainCategories", {
+    templateUrl: "js/templates/categories.template.html",
     bindings: {
         categories: "<"
     }
 });
-
-function CategoriesController () {
-    var $ctrl = this;
-}
 
 })();

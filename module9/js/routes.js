@@ -13,15 +13,26 @@ function RoutesConfig ($stateProvider, $urlRouterProvider) {
     })
     .state('categories', {
         url: "/categories",
-        templateUrl: "js/templates/categories.template.html",
+        templateUrl: "js/templates/main-categories.template.html",
         controller: "CategoriesController as cc",
         resolve: {
-            categories: ["MenuDataService", function (MenuDataService) {
+            allCategories: ["MenuDataService", function (MenuDataService) {
                 return MenuDataService.getAllCategories();
             }]
         }
     })
-    .state('items', {});
+    .state('itemsList', {
+        url: "/items-list/{item_short_name}",
+        templateUrl: "js/templates/main-items.template.html",
+        controller: "ItemsController as ic",
+        resolve: {
+            allItems: ["$stateParams", "MenuDataService", 
+                function ($stateParams, MenuDataService) {
+                    return MenuDataService.getItemsForCategory($stateParams.item_short_name);
+                }
+            ]
+        }
+    });
 }
 
 })();

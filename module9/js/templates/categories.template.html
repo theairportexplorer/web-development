@@ -1,1 +1,5 @@
-Categories View
+<ul>
+    <li ng-repeat="category in $ctrl.categories">
+        <a ui-sref="itemsList({item_short_name: {{category.short_name}} })">{{category.name}}</a>
+    </li>
+</ul>
