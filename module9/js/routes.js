@@ -22,15 +22,18 @@ function RoutesConfig ($stateProvider, $urlRouterProvider) {
         }
     })
     .state('itemsList', {
-        url: "/items-list/{item_short_name}",
+        url: "/items-list/{itemShortName}",
         templateUrl: "js/templates/main-items.template.html",
         controller: "ItemsController as ic",
         resolve: {
             allItems: ["$stateParams", "MenuDataService", 
                 function ($stateParams, MenuDataService) {
-                    return MenuDataService.getItemsForCategory($stateParams.item_short_name);
+                    return MenuDataService.getItemsForCategory($stateParams.itemShortName);
                 }
-            ]
+            ],
+            shortName: ["$stateParams", function ($stateParams) {
+                return $stateParams.itemShortName
+            }]
         }
     });
 }
