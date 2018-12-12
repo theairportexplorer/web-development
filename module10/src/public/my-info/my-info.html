@@ -1,0 +1,16 @@
+<div class="container">
+  <h3 ng-hide="mic.UserInformation.completed">
+    Not signed up yet. <a ui-sref="public.signup">Sign up now!</a>
+  </h3>
+  <div ng-show="mic.UserInformation.completed">
+      <span>First Name: {{ mic.UserInformation.firstName }}</span>
+      <br>
+      <span>Last Name: {{ mic.UserInformation.lastName }}</span>
+      <br>
+      <span>Email: {{ mic.UserInformation.email }}</span>
+      <br>
+      <span>Phone Number: {{ mic.UserInformation.phoneNumber }}</span>
+      <br>
+      <span>Favorite Item: {{ mic.UserInformation.favoriteItem }}</span>
+  </div>
+</div>
