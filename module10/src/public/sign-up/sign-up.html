@@ -1,32 +1,36 @@
 <div class="container">
   <form name=signUpForm>
     <input type="text" style="color: black;" placeholder="First Name"
-    ng-model="suc.UserInfo.firstName" required><br>
+    ng-model="suc.firstNam" required><br>
 
     <input type="text" style="color: black;" placeholder="Last Name"
-    ng-model="suc.UserInfo.lastName" required><br>
+    ng-model="suc.lastName" required><br>
 
     <input type="text" style="color: black;" placeholder="Email"
     pattern="[0-9a-zA-Z]*@[0-9a-zA-Z]*"
-    name="email" ng-model="suc.UserInfo.email" required>
+    name="email" ng-model="suc.email" required>
     <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
       Must be a valid email address: handle@domain format
     </span><br>
 
     <input type="text" style="color: black;" placeholder="Phone ###-###-####"
     name="phone" pattern="(\d{3})-(\d{3})-(\d{4})"
-    ng-model="suc.UserInfo.phoneNumber" required>
+    ng-model="suc.phoneNumber" required>
     <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
       Must be in the format of ###-###-####
     </span><br>
 
     <input type="text" style="color: black;" placeholder="Favorite Item"
-    ng-model="suc.UserInfo.favoriteItem" required><br>
+    ng-blur="suc.fetchMenuItemShortName();"
+    name="favItem" ng-model="suc.favoriteItem" required>
+    <span ng-if="suc.invalidShortName">
+      No such menu number exists
+    </span><br>
 
     <button ng-disabled="signUpForm.$invalid" ng-click="suc.submit();"
     style="color: black;">
       Submit
     </button>
   </form>
-  <span ng-if="suc.UserInfo.completed">Your information has been saved</span>
+  <span ng-if="suc.completed">Your information has been saved</span>
 </div>
